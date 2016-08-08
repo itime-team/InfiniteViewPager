@@ -1,25 +1,20 @@
 apply plugin: 'com.android.library'
-apply plugin: 'android-maven'
-
+apply plugin: 'com.github.dcendents.android-maven'
 group 'com.antonyt.infiniteviewpager'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
-        targetSdkVersion 19
-        minSdkVersion 8
+        targetSdkVersion 23
+        minSdkVersion 19
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
-    }
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.android.support:appcompat-v7:23.0+'
 }

@@ -39,8 +39,15 @@ public class InfiniteViewPagerActivity extends FragmentActivity {
         PagerAdapter wrappedAdapter = new InfinitePagerAdapter(adapter);
 
         // actually an InfiniteViewPager
-        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(wrappedAdapter);
+
+        viewPager.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+               viewPager.setCurrentItem(200);
+            }
+        }, 5000);
 
     }
 }
