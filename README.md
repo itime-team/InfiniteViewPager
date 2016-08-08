@@ -38,13 +38,37 @@ To deploy the library to your local Maven repository run the following task:
 $ ./gradlew install
 ```
 
-Then, to use the library in your project add the following to your `build.gradle`:
+Then, to use the library in your project add the following to your `project and app build.gradle`:
+project build.gradle
+```groovy
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
 
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+}
+```
+
+app build.gradle
 ```groovy
 dependencies {
     compile 'com.antonyt.infiniteviewpager:library:1.0.0'
 }
 ```
+
 
 Wrapped scrolling should now be possible with your `ViewPager`. The pages you see are not duplicates - each page from your `PagerAdapter` is only created once and then reused. This means you do not have to worry about managing multiple instances of the same `Fragment`.
 
